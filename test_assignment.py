@@ -12,7 +12,7 @@ from assignment import write_numbers_to_file, sum_numbers_in_file, count_lines_w
         ([1, 2, 3, 4, 5], "1\n2\n3\n4\n5\n"),
     ]
 )
-def test_write_numbers_to_file(tmp_path, numbers, expected_content):
+def test1(tmp_path, numbers, expected_content):
     file_path = tmp_path / "numbers.txt"
     # Call student function
     write_numbers_to_file(numbers, file_path)
@@ -28,7 +28,7 @@ def test_write_numbers_to_file(tmp_path, numbers, expected_content):
         ("1\n2\n3\n4\n5\n", 15),
     ]
 )
-def test_sum_numbers_in_file(tmp_path, file_content, expected_sum):
+def test2(tmp_path, file_content, expected_sum):
     file_path = tmp_path / "numbers.txt"
     file_path.write_text(file_content)
     # Call student function
@@ -44,7 +44,7 @@ def test_sum_numbers_in_file(tmp_path, file_content, expected_sum):
         ("Hello world\nPython programming\nFile exercises\n", 3, 6),
     ]
 )
-def test_count_lines_words(tmp_path, file_content, expected_lines, expected_words):
+def test3(tmp_path, file_content, expected_lines, expected_words):
     file_path = tmp_path / "data.txt"
     file_path.write_text(file_content)
     lines, words = count_lines_words(file_path)
@@ -60,7 +60,7 @@ def test_count_lines_words(tmp_path, file_content, expected_lines, expected_word
         ("One two three\nFour five\n", 5),
     ]
 )
-def test_count_words_in_file(tmp_path, file_content, expected_word_count):
+def test4(tmp_path, file_content, expected_word_count):
     file_path = tmp_path / "data.txt"
     file_path.write_text(file_content)
     count = count_words_in_file(file_path)
