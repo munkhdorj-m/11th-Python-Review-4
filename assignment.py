@@ -1,21 +1,22 @@
 # You can remove 'pass' if you written code in the function 
 # Exercise 1
-def sum_even_odd(num):
+
+def write_numbers_to_file(numbers, filename):
     # Write your code here
     pass
 
 # Exercise 2
-def count_ending_with_5(num):
+def sum_numbers_in_file(filename):
     # Write your code here
     pass
 
 # Exercise 3
-def factorial_list(nums):
+def count_lines_words(filename):
     # Write your code here
     pass
 
 # Exercise 4
-def count_occurrences(nums):
+def count_words_in_file(filename):
     # Write your code here
     pass
 
