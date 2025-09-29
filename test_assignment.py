@@ -1,55 +1,67 @@
 import pytest
-import inspect
-from assignment import sum_even_odd, count_ending_with_5, factorial_list, count_occurrences
+from pathlib import Path
 
-def check_contains_loop(function):
-    source = inspect.getsource(function)
-    return 'for' in source or 'while' in source
+# Assuming students will have functions like these in a file named student_code.py
+from assignment import write_numbers_to_file, sum_numbers_in_file, count_lines_words, count_words_in_file
 
-
-# Exercise 1: Sum of even and odd numbers
-@pytest.mark.parametrize("lst, expected", [
-    ([1, 2, 3, 4, 5], [6, 9]),
-    ([10, 11, 12, 13], [22, 24]),
-    ([0, 1, 2], [2, 1]),
-    ([5, 7, 9], [0, 21])
-])
-def test1(lst, expected):
-    assert sum_even_odd(lst) == expected
-    assert check_contains_loop(sum_even_odd)
-
-
-# Exercise 2: Count numbers ending with 5
-@pytest.mark.parametrize("lst, expected", [
-    ([5, 15, 23, 25, 40], 3),
-    ([1, 2, 3, 4, 6], 0),
-    ([5, 55, 105], 3),
-    ([10, 20, 30], 0)
-])
-def test2(lst, expected):
-    assert count_ending_with_5(lst) == expected
-    assert check_contains_loop(count_ending_with_5)
+# --- Exercise 1: Write numbers to a file ---
+@pytest.mark.parametrize(
+    "numbers, expected_content",
+    [
+        ([10, 20, 30], "10\n20\n30\n"),
+        ([1, 2, 3, 4, 5], "1\n2\n3\n4\n5\n"),
+    ]
+)
+def test_write_numbers_to_file(tmp_path, numbers, expected_content):
+    file_path = tmp_path / "numbers.txt"
+    # Call student function
+    write_numbers_to_file(numbers, file_path)
+    # Check file content
+    assert file_path.read_text() == expected_content
 
 
-# Exercise 3: Factorial of each number in list
-@pytest.mark.parametrize("lst, expected", [
-    ([3, 4, 5], [6, 24, 120]),
-    ([0, 1, 2], [1, 1, 2]),
-    ([6, 3], [720, 6]),
-    ([1, 1, 1], [1, 1, 1])
-])
-def test3(lst, expected):
-    assert factorial_list(lst) == expected
-    assert check_contains_loop(factorial_list)
+# --- Exercise 2: Sum numbers in a file ---
+@pytest.mark.parametrize(
+    "file_content, expected_sum",
+    [
+        ("10\n20\n30\n", 60),
+        ("1\n2\n3\n4\n5\n", 15),
+    ]
+)
+def test_sum_numbers_in_file(tmp_path, file_content, expected_sum):
+    file_path = tmp_path / "numbers.txt"
+    file_path.write_text(file_content)
+    # Call student function
+    result = sum_numbers_in_file(file_path)
+    assert result == expected_sum
 
 
-# Exercise 4: Count occurrences of each number
-@pytest.mark.parametrize("lst, expected", [
-    ([1, 2, 2, 3, 1, 4, 2], {1: 2, 2: 3, 3: 1, 4: 1}),
-    ([5, 5, 5, 5], {5: 4}),
-    ([1, 2, 3], {1: 1, 2: 1, 3: 1}),
-    ([0, 0, 0, 1], {0: 3, 1: 1})
-])
-def test4(lst, expected):
-    assert count_occurrences(lst) == expected
-    assert check_contains_loop(count_occurrences)
+# --- Exercise 3: Count lines and words in a text file ---
+@pytest.mark.parametrize(
+    "file_content, expected_lines, expected_words",
+    [
+        ("Python is fun.\nIt helps you learn programming.\nFile handling is important.\n", 3, 10),
+        ("Hello world\nPython programming\nFile exercises\n", 3, 6),
+    ]
+)
+def test_count_lines_words(tmp_path, file_content, expected_lines, expected_words):
+    file_path = tmp_path / "data.txt"
+    file_path.write_text(file_content)
+    lines, words = count_lines_words(file_path)
+    assert lines == expected_lines
+    assert words == expected_words
+
+
+# --- Exercise 4: Count words in a text file ---
+@pytest.mark.parametrize(
+    "file_content, expected_word_count",
+    [
+        ("Hello world\nPython programming\nFile exercises\n", 6),
+        ("One two three\nFour five\n", 5),
+    ]
+)
+def test_count_words_in_file(tmp_path, file_content, expected_word_count):
+    file_path = tmp_path / "data.txt"
+    file_path.write_text(file_content)
+    count = count_words_in_file(file_path)
+    assert count == expected_word_count
