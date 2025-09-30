@@ -9,14 +9,12 @@ https://drive.google.com/file/d/1sIv9rb6PizW9sfts9eVu0BkLYWLjysiT/view
 
 **Problem:**
 
-Input n numbers from the user.
-Write each number to a file called numbers.txt, one number per line.
+Input n numbers as list and write each number to a file called numbers.txt, one number per line.
 
 **Example:**
 
     Example Input:
-        5
-        10 20 30 40 50
+        [10,20,30,40,50]
     
     File Output (numbers.txt):
         10
