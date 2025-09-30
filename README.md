@@ -71,17 +71,15 @@ Count and print the number of lines and the total number of words in the file.
 
 **Problem:**
 
-Write a program that reads a text file and prints the number of words in it.
+Write a program that reads a file and prints the longest word.
 
 **Example**
 
     Example File Content (data.txt):
-        Hello world
-        Python programming
-        File exercises
+        What's the longest word in here?
     
     Program Output:
-        Total number of words: 6
+         "longest"
 
     
 ---
