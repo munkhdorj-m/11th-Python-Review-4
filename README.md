@@ -62,8 +62,7 @@ Count and print the number of lines and the total number of words in the file.
         File handling is important.
 
     Program Output:
-        Number of lines: 3
-        Number of words: 10
+        3,12   # lines = 3 words = 12
 
 ---
 
