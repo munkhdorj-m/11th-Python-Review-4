@@ -16,7 +16,7 @@ def count_lines_words(filename):
     pass
 
 # Exercise 4
-def count_words_in_file(filename):
+def find_longest_word_in_file(filename):
     # Write your code here
     pass
 
