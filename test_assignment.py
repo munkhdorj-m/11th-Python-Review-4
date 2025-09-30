@@ -2,7 +2,7 @@ import pytest
 from pathlib import Path
 
 # Assuming students will have functions like these in a file named student_code.py
-from assignment import write_numbers_to_file, sum_numbers_in_file, count_lines_words, count_words_in_file
+from assignment import write_numbers_to_file, sum_numbers_in_file, count_lines_words, find_longest_word_in_file
 
 # --- Exercise 1: Write numbers to a file ---
 @pytest.mark.parametrize(
@@ -60,8 +60,13 @@ def test3(tmp_path, file_content, expected_lines, expected_words):
         ("One two three\nFour five\n", 5),
     ]
 )
-def test4(tmp_path, file_content, expected_word_count):
-    file_path = tmp_path / "data.txt"
-    file_path.write_text(file_content)
-    count = count_words_in_file(file_path)
-    assert count == expected_word_count
+@pytest.mark.parametrize("filename, content, expected_word", [
+    ("test_longest.txt", "Find the longest word in this file.", "longest"),
+    ("test_longest2.txt", "Short words only.", "Short"),
+    ("empty.txt", "", "")
+])
+def test4(filename, content, expected_word):
+    with open(filename, "w") as f:
+        f.write(content)
+    
+    assert find_longest_word_in_file(filename) == expected_word
