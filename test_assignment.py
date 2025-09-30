@@ -40,7 +40,7 @@ def test2(tmp_path, file_content, expected_sum):
 @pytest.mark.parametrize(
     "file_content, expected_lines, expected_words",
     [
-        ("Python is fun.\nIt helps you learn programming.\nFile handling is important.\n", 3, 10),
+        ("Python is fun.\nIt helps you learn programming.\nFile handling is important.\n", 3, 12),
         ("Hello world\nPython programming\nFile exercises\n", 3, 6),
     ]
 )
