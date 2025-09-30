@@ -86,3 +86,49 @@ Write a program that reads a text file and prints the number of words in it.
     
 ---
 
+## Exercise 5 (Optional)
+
+**Problem:**
+
+Word Guessing Game (like Hangman)
+
+-Store a list of words in a file called words.txt.
+-The program randomly picks a word from the file.
+-The user guesses letters until they find the word (limit wrong guesses to 6).
+-Save the game result (win or lose) to results.txt.
+
+**Example**
+
+    Example 1:
+    Word Guessing Game!
+    The word has 7 letters: _ _ _ _ _ _
+    
+    Guess a letter: y
+    Good guess! _ y _ _ _ _
+    
+    Guess a letter: e
+    Wrong guess! 5 tries left.
+    
+    Guess a letter: p
+    Good guess! p y _ _ _ _ 
+    
+    ...
+    
+    Congratulations! You guessed the word: "python"
+    Game result saved to results.txt
+
+    Example 2:
+    Word Guessing Game!
+    The word has 6 letters: _ _ _ _ _ _
+    
+    Guess a letter: z
+    Wrong guess! 5 tries left.
+    
+    ...
+    
+    Sorry, you lost! The word was: "school"
+    Game result saved to results.txt
+
+---
+1. 
+
