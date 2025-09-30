@@ -52,14 +52,6 @@ def test3(tmp_path, file_content, expected_lines, expected_words):
     assert words == expected_words
 
 
-# --- Exercise 4: Count words in a text file ---
-@pytest.mark.parametrize(
-    "file_content, expected_word_count",
-    [
-        ("Hello world\nPython programming\nFile exercises\n", 6),
-        ("One two three\nFour five\n", 5),
-    ]
-)
 @pytest.mark.parametrize("filename, content, expected_word", [
     ("test_longest.txt", "Find the longest word in this file.", "longest"),
     ("test_longest2.txt", "Short words only.", "Short"),
