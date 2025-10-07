@@ -127,5 +127,4 @@ Word Guessing Game (like Hangman)
     Game result saved to results.txt
 
 ---
-1. 
 
