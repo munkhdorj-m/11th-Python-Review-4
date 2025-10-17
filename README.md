@@ -52,7 +52,7 @@ Calculate and print the sum of all numbers.
 **Problem:**
 
 Create a text file data.txt with some text.
-Count and print the number of lines and the total number of words in the file.
+Count and return the number of lines and the total number of words in the file.
 
 **Example**
 
@@ -70,7 +70,7 @@ Count and print the number of lines and the total number of words in the file.
 
 **Problem:**
 
-Write a program that reads a file and prints the longest word.
+Write a program that reads a file and returns the longest word.
 
 **Example**
 
